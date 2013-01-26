@@ -15,57 +15,41 @@ int main(void)
     
     @autoreleasepool {
         
-        //NSLog is mostly like printf
-        NSLog(@"Hello, World!");
+        NSMutableArray* words=nil;
+        NSLog(@"words, %@:\n%@", @"Uninitialized", words);
         
-        //Special characters still work
-        NSLog(@"Hello\nWorld!");
+        words = [[NSMutableArray alloc] init];
+        NSLog(@"words, %@:\n%@", @"Initialized", words);
         
-        //Old tokens still work
-        NSLog(@"String: [%s] Character: [%c] Decimal: [%d]", "string", 'c', 19);
+        [words addObject:@"world"];
+        NSLog(@"words, %@:\n%@", @"one added", words);
         
-        //You can also use the %@ token for NSStrings like @"Hi"
-        NSLog(@"%@, World!", @"Howdy");
+        [words addObject:@"Hello"];
+        NSLog(@"words, %@:\n%@", @"two added", words);
         
-        //And for NSNumbers like @42
-        NSLog(@"Hello, %@ world.", @42);
+        [words addObject:@", "];
+        NSLog(@"words, %@:\n%@", @"all added", words);
         
-        //And for other, stranger things
-        NSLog(@"Hello, %@ world.", [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @20, @"Age",
-                                    @"F", @"First Initial",
-                                    @"Last", @"Last Name",
-                                    @3.4, @"GPA",
-                                    nil]);
         
-        //String variables need to be pointers. Object pointers are initialized to nil (nut NULL)
-        NSString* ihw = nil;
+        SEL sortingOrder = NULL;
+        sortingOrder = @selector(localizedCaseInsensitiveCompare:);
+        [words sortUsingSelector:sortingOrder];
+        NSLog(@"words, sorted using %@:\n%@", NSStringFromSelector(sortingOrder), words);
         
-        //Which can also be used with the %@ token, even when nil!
-        NSLog(@"Hello, [%@] world.", ihw);
+        NSMutableString* word = nil;
+        NSLog(@"word, %@:\n%@", @"Uninitialized", word);
         
-        //A string literals *means* "a pointer to that string"
-        ihw = @"Non-nil";
-        NSLog(@"Hello, [%@] world.", ihw);
+        word = [[NSMutableString alloc] initWithString: [words objectAtIndex:0]];
+        NSLog(@"word, %@:\n%@", @"Initialized", word);
         
-        //They can also be pre-assembled, printf-style
-        ihw = [[NSString alloc] initWithFormat:@"%d bottles of %@ on the wall", 99, @"beer"];
-        NSLog(@"Hello, [%@] world.", ihw);
+        [word appendString:[words objectAtIndex:2]];
+        NSLog(@"word, %@:\n%@", @"Post-append", word);
         
-        //There's also a "Mutable" kind of string, that you can "mutate" (change)
-        NSMutableString* mhw = nil;
-        NSLog(@"Mutable [%@] world.", mhw);
+        [word insertString:[words objectAtIndex:1]
+                   atIndex:0];
         
-        //We'll make one based on our existing string
-        mhw = [NSMutableString stringWithString:ihw];
-        NSLog(@"Mutable [%@] world.", mhw);
-        
-        //Going to change the string...
-        [mhw insertString:@"!!frobnozz!!" atIndex:6];
-        NSLog(@"Mutable [%@] world.", mhw);
-        
-        //Immutable strings can't be mutated - that's a compile error!
-        //[ihw insertString:@"!!frobnozz!!" atIndex:5];
+        word = [[NSString alloc] initWithFormat:@"%@%@", [words objectAtIndex:1], word];
+        NSLog(@"word, %@:\n%@", @"Post-reformat", word);
         
     }
     return EXIT_SUCCESS;
