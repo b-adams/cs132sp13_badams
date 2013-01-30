@@ -10,6 +10,7 @@
 		E9E82A7C16B9C84900C41C83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E82A7B16B9C84900C41C83 /* Foundation.framework */; };
 		E9E82A7F16B9C84900C41C83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E82A7E16B9C84900C41C83 /* main.m */; };
 		E9E82A8316B9C84900C41C83 /* Calculator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9E82A8216B9C84900C41C83 /* Calculator.1 */; };
+		E9E82A8B16B9C86D00C41C83 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E82A8A16B9C86D00C41C83 /* Calculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		E9E82A7E16B9C84900C41C83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9E82A8116B9C84900C41C83 /* Calculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calculator-Prefix.pch"; sourceTree = "<group>"; };
 		E9E82A8216B9C84900C41C83 /* Calculator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Calculator.1; sourceTree = "<group>"; };
+		E9E82A8916B9C86D00C41C83 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = SOURCE_ROOT; };
+		E9E82A8A16B9C86D00C41C83 /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 		E9E82A7D16B9C84900C41C83 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E9E82A8916B9C86D00C41C83 /* Calculator.h */,
+				E9E82A8A16B9C86D00C41C83 /* Calculator.m */,
 				E9E82A7E16B9C84900C41C83 /* main.m */,
 				E9E82A8216B9C84900C41C83 /* Calculator.1 */,
 				E9E82A8016B9C84900C41C83 /* Supporting Files */,
@@ -140,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9E82A7F16B9C84900C41C83 /* main.m in Sources */,
+				E9E82A8B16B9C86D00C41C83 /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
