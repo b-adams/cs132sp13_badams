@@ -17,13 +17,19 @@
 
 -(void) pressKey:(char)theKey
 {
-    NSLog(@"STUB response to '%@' message received by object at %p (%@)",
-          NSStringFromSelector(_cmd), self, self);
+    if('0'<=theKey && theKey<='9')
+    {
+        int newDigit = theKey - '0';
+        int oldNumber = [self numberOnScreen];
+        int newNumber = 10*oldNumber + newDigit;
+        [self setNumberOnScreen:newNumber];
+    } else if(theKey=='c' || theKey=='C') {
+        [self setNumberOnScreen:0];
+    } else {
+        NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)",
+              theKey, NSStringFromSelector(_cmd), self, self);
+    }
     
-    int newDigit = theKey - '0';
-    int oldNumber = [self numberOnScreen];
-    int newNumber = 10*oldNumber + newDigit;
-    [self setNumberOnScreen:newNumber];
     
     return;
 }
