@@ -17,7 +17,7 @@
 
 -(void) pressKey:(char)theKey
 {
-    if('0'<=theKey && theKey<='9')
+    if(isADigit(theKey))
     {
         int newDigit = theKey - '0';
         int oldNumber = [self numberOnScreen];
@@ -41,3 +41,5 @@
             [self numberOnScreen]];
 }
 @end
+
+BOOL isADigit(char someChar) { return '0'<=someChar && someChar<='9'; }

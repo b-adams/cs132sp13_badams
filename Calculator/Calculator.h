@@ -6,3 +6,5 @@
 @property (assign) char operationPending;
 -(void) pressKey:(char)theKey;
 @end
+
+BOOL isADigit(char someChar);
