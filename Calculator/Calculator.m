@@ -23,7 +23,7 @@
         int oldNumber = [self numberOnScreen];
         int newNumber = 10*oldNumber + newDigit;
         [self setNumberOnScreen:newNumber];
-    } else if(theKey=='c' || theKey=='C') {
+    } else if(isClearScreenKey(theKey)) {
         [self setNumberOnScreen:0];
     } else {
         NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)",
@@ -43,3 +43,4 @@
 @end
 
 BOOL isADigit(char someChar) { return '0'<=someChar && someChar<='9'; }
+BOOL isClearScreenKey(char someChar) { return someChar=='c' || someChar=='C'; }
