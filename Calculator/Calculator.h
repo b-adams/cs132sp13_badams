@@ -6,7 +6,7 @@
 @property (assign) char operationPending;
 -(void) pressKey:(char)theKey;
 - (void)appendDigit:(char)theDigit;
-
+- (void)clearScreen;
 @end
 
 BOOL isADigit(char someChar);

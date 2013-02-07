@@ -23,13 +23,18 @@
     [self setNumberOnScreen:newNumber];
 }
 
+- (void)clearScreen
+{
+    [self setNumberOnScreen:0];
+}
+
 -(void) pressKey:(char)theKey
 {
     if(isADigit(theKey))
     {
         [self appendDigit:theKey];
     } else if(isClearScreenKey(theKey)) {
-        [self setNumberOnScreen:0];
+        [self clearScreen];
     } else {
         NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)",
               theKey, NSStringFromSelector(_cmd), self, self);
