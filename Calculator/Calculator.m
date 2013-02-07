@@ -19,6 +19,12 @@
 {
     NSLog(@"STUB response to '%@' message received by object at %p (%@)",
           NSStringFromSelector(_cmd), self, self);
+    
+    int newDigit = theKey - '0';
+    int oldNumber = [self numberOnScreen];
+    int newNumber = 10*oldNumber + newDigit;
+    [self setNumberOnScreen:newNumber];
+    
     return;
 }
 
