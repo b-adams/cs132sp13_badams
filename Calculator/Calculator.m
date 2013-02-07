@@ -15,14 +15,19 @@
     return self;
 }
 
+- (void)appendDigit:(char)theDigit
+{
+    int newDigit = theDigit - '0';
+    int oldNumber = [self numberOnScreen];
+    int newNumber = 10*oldNumber + newDigit;
+    [self setNumberOnScreen:newNumber];
+}
+
 -(void) pressKey:(char)theKey
 {
     if(isADigit(theKey))
     {
-        int newDigit = theKey - '0';
-        int oldNumber = [self numberOnScreen];
-        int newNumber = 10*oldNumber + newDigit;
-        [self setNumberOnScreen:newNumber];
+        [self appendDigit:theKey];
     } else if(isClearScreenKey(theKey)) {
         [self setNumberOnScreen:0];
     } else {
@@ -40,6 +45,7 @@
     return [NSString stringWithFormat:@"Calculator with %d on screen.",
             [self numberOnScreen]];
 }
+
 @end
 
 BOOL isADigit(char someChar) { return '0'<=someChar && someChar<='9'; }

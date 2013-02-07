@@ -5,6 +5,8 @@
 @property (assign) int numberAccumulated;
 @property (assign) char operationPending;
 -(void) pressKey:(char)theKey;
+- (void)appendDigit:(char)theDigit;
+
 @end
 
 BOOL isADigit(char someChar);
